@@ -1,0 +1,29 @@
+# Proves a fresh clone can install and dry-run. No credentials, no network sends.
+name: smoke
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  dry-run:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -r requirements.txt
+      - name: Follow the README quickstart
+        run: |
+          cp -n recipients.sample.csv recipients.csv
+          cp -n template.sample.txt   template.txt
+      - name: Dry-run must succeed and send nothing
+        run: |
+          python merge.py | tee out.txt
+          grep -q "Mode: DRY-RUN" out.txt
+          grep -q "Will process: 3" out.txt
+          test ! -f sent_log.csv

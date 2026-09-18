@@ -2,6 +2,7 @@
 
 **A mail merge that runs on your laptop and sends as you — no SaaS, no add-on, no access to your inbox.**
 
+[![smoke](https://github.com/markobonna/gmail-mail-merge/actions/workflows/smoke.yml/badge.svg)](https://github.com/markobonna/gmail-mail-merge/actions/workflows/smoke.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/downloads/)
 
@@ -34,9 +35,8 @@ Most mail-merge tools are browser add-ons that want read access to your entire m
 
 Requires Python 3.9+ and a Google account. Budget ~10 minutes, most of it in the Google Cloud Console the first time.
 
-Clone this repo (green **Code** button above for the URL), then:
-
 ```bash
+git clone https://github.com/markobonna/gmail-mail-merge.git
 cd gmail-mail-merge
 
 python3 -m venv .venv
