@@ -1,0 +1,14 @@
+# Google OAuth — never commit
+credentials.json
+token.json
+
+# Your list, your message, your send history.
+# The .sample files are the public examples — copy them, don't edit them.
+recipients.csv
+template.txt
+sent_log.csv
+
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
